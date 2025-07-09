@@ -1,0 +1,246 @@
+/* ====== COLOR VARIABLES ====== */
+:root {
+  --primary-color: #007bff;
+  --primary-color-dark: #0056b3;
+  --background-color: #f4f4f9;
+  --text-color: #333333;
+  --card-background: #ffffff;
+  --footer-background: #333333;
+  --footer-text-color: #ffffff;
+  --input-border-color: #ccc;
+  --button-hover-color: var(--primary-color-dark);
+}
+
+/* ====== BASE STYLES ====== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  background-image: url('background.jpg'); /* Optional background image */
+  background-size: cover;
+  background-position: center;
+  color: var(--text-color);
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255,255,255,0.85); /* Overlay to improve text readability */
+  pointer-events: none;
+  z-index: -1;
+}
+
+h1, h2, h3 {
+  color: var(--text-color);
+  margin-top: 0;
+}
+
+/* ====== HEADER ====== */
+header {
+  background: var(--primary-color);
+  color: var(--footer-text-color);
+  padding: 20px;
+  text-align: center;
+}
+
+header a {
+  color: var(--footer-text-color);
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+header a:hover,
+header a:focus {
+  color: var(--button-hover-color);
+  outline: none;
+}
+
+/* ====== CONTAINER & LAYOUT ====== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.column {
+  flex: 1;
+  padding: 10px;
+  min-width: 280px;
+}
+
+/* ====== BUTTONS ====== */
+button,
+a.button {
+  background-color: var(--primary-color);
+  color: var(--footer-text-color);
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+button:hover,
+a.button:hover {
+  background-color: var(--button-hover-color);
+}
+
+button:focus,
+a.button:focus {
+  outline: 3px solid var(--button-hover-color);
+  outline-offset: 2px;
+}
+
+/* ====== FORMS ====== */
+input[type="text"],
+input[type="password"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+/* ====== CARDS ====== */
+.card {
+  background-color: var(--card-background);
+  color: var(--text-color);
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+/* ====== FOOTER ====== */
+footer {
+  background-color: var(--footer-background);
+  color: var(--footer-text-color);
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 14px;
+}
+
+/* ====== RESPONSIVE DESIGN ====== */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+  
+  .row {
+    flex-direction: column;
+  }
+  
+  .column {
+    width: 100%;
+    padding: 5px;
+  }
+  
+  header {
+    padding: 15px;
+  }
+  
+  footer {
+    padding: 5px;
+  }
+}
+
+/* ====== ANIMATIONS ====== */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+/* Specific styles for My Account page */
+
+.account-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: var(--card-background);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+
+.account-container h2 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.account-container label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.account-container input,
+.account-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid var(--input-border-color);
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.account-container button {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.account-container button:hover {
+  background: var(--button-hover-color);
+}
+
+.message {
+  text-align: center;
+  margin-bottom: 15px;
+  color: green;
+}
+
